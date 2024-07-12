@@ -6,8 +6,8 @@
     --amarelo:#FFDB00;
     /* Cor secundária */
     --amareloClaro: #FFFCE6;
-    --azul: #0080FF;
     --white: #fff;
+    --azulEscuro:#00264D;
 }
 *{
     margin: 0;
@@ -16,13 +16,13 @@
 }
 .body{
     background-color: var(--azulEscuro);
-    font-family: "Roboto Mono", monospace;
-    color: var(--azul);
+    color: var(--azulEscuro);
     font-weight: 300;
+    font-family: "Roboto Mono", monospace;
 }
 .header{
     background-color: var(--amarelo);
-    color: var(--azul);
+    color: var(--azulEscuro);
     padding: 8px;
     display: flex;
     justify-content: space-around;
@@ -44,17 +44,20 @@
     padding: 8px;
     cursor: pointer;
     transition: 0.5s ease-out;
+    font-size: 18px;
 }
 .header-menu li:hover{
     transform: scale(1.1);
-    background-color: var(--azul);
+    background-color: var(--azulEscuro);
     color: var(--amareloClaro);
     border-radius: 8px;
 }
 .header-intro{
     background-color:var(--amareloClaro);
     display: flex;
-    height: 60vh;
+    height: 80vh;
+    font-family: "Roboto Mono", monospace;
+    padding: 32px;
 }
 .intro-left{
     width: 50%;
@@ -68,14 +71,90 @@
     font-size: 32px;
     font-weight: 600;
 }
+
+.header-intro img{
+    width: 350px;
+    height: 250px;
+    padding: 20px;
+    z-index: 1;
+    animation: subirDescer 3s ease-in-out infinite;
+}
+.intro-left button{
+    background-color: var(--azulEscuro);
+    padding: 8px;
+    color: #fff;
+    font-family: "Roboto Mono", monospace;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease-out;
+}
+.intro-left button:hover{
+    transform: scale(1.1);
+}
 .intro-right{
     width: 50%;
     display: flex;
     align-items: center;
     justify-content:center;
+    position: relative;
 }
-.header-intro img{
+.intro-right::before{
+    content:"";
+    position: absolute;
+    top: 10%;
+    left: 23.2%;
     width: 350px;
-    height: 250px;
-    padding: 20px;
+    height: 350px;
+    background-color: var(--azulEscuro);
+    z-index: 0;
+    border-radius: 50%;
+    animation: subirDescer 3s ease-in-out infinite;
+}
+@keyframes subirDescer{
+        0%{
+            transform: translationY(0);
+        }
+        50%{
+            transform: translateY(-20px);
+        }
+        100%{
+            transform: translateY(0);
+        }
+}
+.main-projetos{
+    background-color: var(--azulEscuro);
+    display: flex;
+    font-family: "Roboto Mono", monospace;
+    justify-content: space-between;
+}
+.projeto-card{
+    /* background-color: yellow; */
+    margin: 20px;
+    display:flex;
+    /* mudando a orientçao da caixa */
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+}
+.projeto-card p{
+    font-size: 24px;
+    color: var(--white);
+    padding: 8px;
+}
+.projeto-card a{
+    color: var(--azulEscuro);
+    text-decoration: none;
+    background-color: var(--white);
+    margin: 16px;
+    padding: 6px;
+    border-radius: 8px;
+    transition: 0.5s ease-out;
+}
+.projeto-card a:hover{
+    transform: scale(1.1);
+}
+footer{
+    text-align: center;
+    padding: 8px;
 }
